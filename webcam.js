@@ -20,17 +20,14 @@ async function init() {
 			constraints
 		);
 
-		handleSuccess(stream);
+		window.stream = stream;
+		video.srcObject = stream;
+
 	} catch (err) {
 		errMsgElement.innerHTML = `navigator.getUserMedia.error: ${err.toString()}`;
 	}
 }
 
-// Success
-function handleSuccess(stream) {
-	window.stream = stream;
-	video.srcObject = stream;
-}
 
 // Call Init function to start webcam
 init();
